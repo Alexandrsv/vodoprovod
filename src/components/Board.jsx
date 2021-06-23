@@ -1,34 +1,31 @@
-import React, {useState} from 'react';
+import React, {useEffect,} from 'react';
 import s from './Board.module.css'
+import {useDispatch, useSelector} from "react-redux";
+import {boardActions,} from "../redux/board-reducer";
 
-const pipes = [
-    {positions: ['─', '│', '─', '│',]},
-    {positions: ['┤', '┴', '├', '┬',]},
-    {positions: ['└', '┌', '┐', '┘',]},
-]
 
-const X = 30
-const Y = 10
-
-const randInt = (min, max) => Math.round(min - 0.5 + Math.random() * (max - min + 1))
-
-const initialState = Array(Y).fill('').map(() => Array(X).fill('').map(() => ({
-    type: randInt(0, 2),
-    position: randInt(0, 3),
-    active: false
-})))
 
 const Board = () => {
-    const [state, setState] = useState(initialState)
+    const board = useSelector(state => state.boardReducer.board)
+    const pipes = useSelector(state => state.boardReducer.pipes)
 
-    const handleClick = (row, column) => {
-        const newState = state.map(v => [...v])
-        newState[row][column].position = (newState[row][column].position + 1) % 4
-        setState(newState)
+    const dispatch = useDispatch()
+
+    // console.log(board)
+
+    useEffect(() => {
+        dispatch(boardActions.generateBoard())
+        dispatch(boardActions.calculatePath())
+    }, [dispatch])
+
+    const  handleClick= (row, column) => {
+        dispatch(boardActions.rotatePipe(row, column))
+        dispatch(boardActions.calculatePath())
     }
+
     return (
-        <div className="Blocks">
-            {state.map((v, row) => {
+        <div className={s.Blocks}>
+            {board.length > 5 && board.map((v, row) => {
                 return <div key={row}>{v.map((v, column) => {
                     return <span className={`${s.Block} ${v.active && s.Active}`}
                                  key={column}
