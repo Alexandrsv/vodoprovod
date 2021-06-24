@@ -15,12 +15,11 @@ const Board = () => {
 
     useEffect(() => {
         dispatch(boardActions.generateBoard())
-        dispatch(boardActions.calculatePath())
     }, [dispatch])
+
 
     const  handleClick= (row, column) => {
         dispatch(boardActions.rotatePipe(row, column))
-        dispatch(boardActions.calculatePath())
     }
 
     return (
