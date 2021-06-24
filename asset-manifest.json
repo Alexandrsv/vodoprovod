@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/vodoprovod/static/css/main.def26d6d.chunk.css",
-    "main.js": "/vodoprovod/static/js/main.36254fac.chunk.js",
-    "main.js.map": "/vodoprovod/static/js/main.36254fac.chunk.js.map",
+    "main.js": "/vodoprovod/static/js/main.7f127771.chunk.js",
+    "main.js.map": "/vodoprovod/static/js/main.7f127771.chunk.js.map",
     "runtime-main.js": "/vodoprovod/static/js/runtime-main.665b8fec.js",
     "runtime-main.js.map": "/vodoprovod/static/js/runtime-main.665b8fec.js.map",
-    "static/js/2.143b0965.chunk.js": "/vodoprovod/static/js/2.143b0965.chunk.js",
-    "static/js/2.143b0965.chunk.js.map": "/vodoprovod/static/js/2.143b0965.chunk.js.map",
+    "static/js/2.19bbdc53.chunk.js": "/vodoprovod/static/js/2.19bbdc53.chunk.js",
+    "static/js/2.19bbdc53.chunk.js.map": "/vodoprovod/static/js/2.19bbdc53.chunk.js.map",
     "static/js/3.e23b7c04.chunk.js": "/vodoprovod/static/js/3.e23b7c04.chunk.js",
     "static/js/3.e23b7c04.chunk.js.map": "/vodoprovod/static/js/3.e23b7c04.chunk.js.map",
     "index.html": "/vodoprovod/index.html",
     "static/css/main.def26d6d.chunk.css.map": "/vodoprovod/static/css/main.def26d6d.chunk.css.map",
-    "static/js/2.143b0965.chunk.js.LICENSE.txt": "/vodoprovod/static/js/2.143b0965.chunk.js.LICENSE.txt"
+    "static/js/2.19bbdc53.chunk.js.LICENSE.txt": "/vodoprovod/static/js/2.19bbdc53.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.665b8fec.js",
-    "static/js/2.143b0965.chunk.js",
+    "static/js/2.19bbdc53.chunk.js",
     "static/css/main.def26d6d.chunk.css",
-    "static/js/main.36254fac.chunk.js"
+    "static/js/main.7f127771.chunk.js"
   ]
 }
