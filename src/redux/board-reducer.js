@@ -1,4 +1,4 @@
-import {calculateBoardPath, getActualFlow, getNewBoard} from "../utils/utils";
+import {calculateBoardPath, getNewBoard} from "../utils/utils";
 
 const GENERATE_BOARD = 'board/GENERATE_BOARD'
 const ROTATE_PIPE = 'board/ROTATE_PIPE'
@@ -14,6 +14,7 @@ export const pipes = [
 const initialState = {
     board: [[], []],
     pipes: pipes,
+    isWin: false
 
 }
 
@@ -21,17 +22,19 @@ const initialState = {
 export const boardReducer = (state = initialState, action) => {
     switch (action.type) {
         case GENERATE_BOARD: {
-            return {...state, board: calculateBoardPath(getNewBoard(30, 10))};
+            return {...state, board: calculateBoardPath(getNewBoard(30, 10)), isWin: false};
         }
         case ROTATE_PIPE:
-            const {row,column} = action.payload
-            const newBoard = state.board.map(v => [...v])
+            const {row, column} = action.payload
+            let newBoard = state.board.map(v => [...v])
             const newPosition = (newBoard[row][column].position + 1) % 4
             newBoard[row][column].position = newPosition
-            console.log(getActualFlow(newBoard[row][column]))
+            newBoard = calculateBoardPath(newBoard, pipes)
+            const isWin = newBoard[newBoard.length - 1][newBoard[0].length - 1].active
             return {
                 ...state,
-                board: calculateBoardPath(newBoard, pipes),
+                board: newBoard,
+                isWin
             }
         default:
             return state
